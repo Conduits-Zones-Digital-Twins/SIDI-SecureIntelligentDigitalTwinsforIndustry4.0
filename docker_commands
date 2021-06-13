@@ -1,0 +1,24 @@
+docker swarm join --token SWMTKN-1-2uiwarwe1qnwrch6ctsrncjd4dsavmg2a3coay9it39z1rcllc-042f4mcfjp3m011digva3if5n 192.168.1.111:2377
+
+docker run -it --name alpine1 --network test-net  --security-opt seccomp=unconfined alpine:3.13
+
+docker network create --driver overlay --subnet 10.0.0.0/23 --ip-range 10.0.1.0/24 --gateway 10.0.0.1 --attachable test-net
+
+docker run --name test1 --detach=true --rm --cap-add=NET_ADMIN --network=test -e STATIC_IP=10.0.0.11 dumb_receiver
+
+docker run -it --name dumb_receiver1 --cap-add=NET_ADMIN --network test-net -e STATIC_IP=10.0.0.11 dumb_receiver
+
+docker network create --driver=overlay --attachable test-net
+---------------
+
+docker run -it --name alpine1 --ip 10.0.0.11  --network test-net  --security-opt seccomp=unconfined alpine:3.13
+
+
+-------------
+
+docker run -it --name test-receiver1 --ip 10.0.0.14  --network test-net test-receiver
+
+
+-------------
+
+docker run -it --name test-sender1 --network test-net test-sender

@@ -1,0 +1,5 @@
+# SMART ROUTING MIDDLEWARE - April 2021 - UNIBO
+
+A machine learning enhanced middleware for pkt forwarding and QoS monitoring.
+> Simplified Sender-Receiver topology example:
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)

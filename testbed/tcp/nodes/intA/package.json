@@ -1,0 +1,22 @@
+{
+  "name": "smart_routing_middleware",
+  "version": "1.0.0",
+  "description": "smart routing middlware for ai enhanced forwarding",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  },
+  "author": "Matteo Mendula",
+  "license": "ISC",
+  "dependencies": {
+    "aes256": "^1.1.0",
+    "data-crypto": "^1.4.4",
+    "net": "^1.0.2",
+    "ping": "^0.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.0"
+  }
+}
